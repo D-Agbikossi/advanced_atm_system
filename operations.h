@@ -14,6 +14,9 @@ Authors:
 #define MAX_TRANSACTIONS 5
 #define MAX_STR 100
 
+// Predefined users accessible from main
+extern char usernames[MAX_USERS][20];
+
 // Functions
 int login(char username[], char pin[]);
 void check_balance(int userIndex);
