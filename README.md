@@ -1,68 +1,122 @@
-ATM System in C
+# ATM System in C
 
-# Problem Statement
+## 📌 Problem Statement
 
-This project implements a simple ATM system in C. The program simulates basic banking operations for multiple predefined users. Each user can log in with a username and a 4-digit PIN, then perform actions such as checking balance, depositing, withdrawing, and viewing transaction history.
+This project implements a simple ATM system in **C**.
+The program simulates basic banking operations for multiple predefined users.
+Each user logs in with a **username** and a **4-digit PIN**, then can perform actions such as:
 
-This project aims to demonstrate the use of variables, control structures, arrays, strings, and modular functions in C, as well as handling input/output operations.
+* Checking balance
+* Depositing money
+* Withdrawing money
+* Viewing transaction history
 
-# Assumptions
-- Users are predefined in the system (stored in arrays).
-- PINs are fixed 4-digit numbers.
-- Balances start with predefined values.
-- Transaction history is limited to the last 5 operations.
-- Input is assumed to be valid (no handling of non-numeric deposits/withdrawals or non positive deposits/withdrawals).
+This project demonstrates:
 
-# How to Compile and Run
-1. Clone the repository:
+* Use of **variables, arrays, and strings**
+* **Control structures and loops**
+* **Functions** and modular program design
+* **Input/output handling** in C
+
+---
+
+## 🔑 Assumptions
+
+* Users are **predefined** in the system (stored in arrays).
+* PINs are fixed **4-digit strings**.
+* Balances start with predefined values.
+* Transaction history is limited to the **last 5 operations** per user.
+* Input is assumed valid (no invalid number/character error handling).
+
+---
+
+## ⚙️ How to Compile and Run
+
+1. **Clone the repository**
+
 ```bash
-git clone 
+git clone <your-repo-url>
 cd advanced_atm_system
 ```
 
-2. Compile the program:
+2. **Compile the program**
+
 ```bash
-gcc operations.c -o operations
+gcc main.c operations.c -o atm
 ```
 
-3. Run the program:
+3. **Run the program**
+
 ```bash
-./operations
+./atm
 ```
 
-# Sample Input/Output
+---
 
-Login:
+## 🖥️ Sample Input/Output
 
-Enter Username: john  
-Enter PIN: 1234  
-Login Successful!
+**Login Example**
 
+```
+==== Welcome to the ATM System ====
+Enter Username: precious
+Enter PIN: 5678
+Login successful! Welcome, precious
+```
 
-Menu:
+**Menu**
 
-1. Check Balance  
-2. Deposit  
-3. Withdraw  
-4. View Transactions  
-5. Logout  
+```
+===== ATM MENU =====
+1. Check Balance
+2. Deposit
+3. Withdraw
+4. View Transactions
+5. Exit
+Select an option:
+```
 
+**Deposit Example**
 
-Example Transaction:
+```
+Enter amount to deposit: 200
+Deposited 200.00 RWF. New balance: 1700.00 RWF
+```
 
-Enter amount to deposit: 200  
-Deposit successful. New Balance: 1200
+**Transaction History Example**
 
+```
+Last 3 transactions:
+1. Deposited 200 RWF
+2. Withdrew 100 RWF
+3. Checked Balance
+```
 
-Transaction History Example:
+---
 
-Transactions:  
-1. Deposited 200  
-2. Withdrew 100  
-3. Checked Balance  
+## 📂 Key Functions
 
-# Key Functions
+* `login()` → Validates username and PIN
+* `check_balance()` → Displays current user’s balance
+* `deposit()` → Adds money to balance and logs transaction
+* `withdraw()` → Subtracts money if sufficient funds exist
+* `view_transactions()` → Shows the last 5 transactions
+* `add_transaction()` → Records a new transaction in history
+* `exit_program()` → Safely exits the ATM
 
+---
 
-# Design Choices
-- Modular functions are used for each ATM operation for clarity and reusability.
+## 🎨 Design Choices
+
+* **Modular programming** → Each operation is in a separate function for clarity.
+* **Arrays and strings** → Used for storing users, PINs, balances, and transaction logs.
+* **Transaction history** → Implemented as a circular buffer (only last 5 saved).
+* **Scalability** → Supports up to `MAX_USERS` (default = 10).
+
+---
+
+## 👥 Authors
+
+* Denaton Agbikossi
+* Precious Mozia
+
