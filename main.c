@@ -23,23 +23,23 @@ void displayMenu() {
 }
 
 int main() {
-    char username[20], pin[5];
+    char usernameInput[20], pin[5];
     int userIndex = -1;
 
     printf("==== Welcome to the ATM System ====\n");
     printf("Enter Username: ");
-    scanf("%s", username);
+    scanf("%s", usernameInput);
     printf("Enter PIN: ");
     scanf("%s", pin);
 
-    userIndex = login(username, pin);
+    userIndex = login(usernameInput, pin);
 
     if (userIndex == -1) {
         printf("Login failed. Exiting...\n");
         return 0;
     }
 
-    printf("Login successful! Welcome, %s\n", username[userIndex]);
+    printf("Login successful! Welcome, %s\n", usernames[userIndex]);
 
     int choice;
     double amount;
