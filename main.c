@@ -25,22 +25,36 @@ void displayMenu() {
 int main() {
     char usernameInput[20], pin[5];
     int userIndex = -1;
+    int attempts = 0;
 
     printf("==== Welcome to the ATM System ====\n");
-    printf("Enter Username: ");
-    scanf("%s", usernameInput);
-    printf("Enter PIN: ");
-    scanf("%s", pin);
 
-    userIndex = login(usernameInput, pin);
+    // Allow up to 2 login attempts
+    while (attempts < 2) {
+        printf("Enter Username: ");
+        scanf("%s", usernameInput);
+        printf("Enter PIN: ");
+        scanf("%s", pin);
 
-    if (userIndex == -1) {
-        printf("Login failed. Exiting...\n");
-        return 0;
+        userIndex = login(usernameInput, pin);
+
+        if (userIndex != -1) {
+            printf("Login successful! Welcome, %s\n", usernames[userIndex]);
+            break;  // exit login loop if successful
+        } else {
+            attempts++;
+            if (attempts < 2) {
+                printf("Your username or your password is wrong. Try again.\n\n");
+            }
+        }
     }
 
-    printf("Login successful! Welcome, %s\n", usernames[userIndex]);
+    if (userIndex == -1) {
+        printf("Too many failed attempts. Exiting...\n");
+        return 0; // terminate program
+    }
 
+    // Menu loop
     int choice;
     double amount;
 
